@@ -3,22 +3,22 @@ package Kata2;
 import java.util.Map;
 import java.util.HashMap;
 
-public class Histogram {
+public class Histogram <T>{
     
-    private final int[] data;
+    private final T[] data;
 
-    public Histogram(int[] data) {
+    public Histogram(T[] data) {
         this.data = data;
     }
 
-    public int[] getData() {
+    public T[] getData() {
         return data;
     }
     
-    Map<Integer,Integer> getHistogram(){
-        Map<Integer,Integer> histogram = new HashMap<>();
+    public Map<T,Integer> getHistogram(){
+        Map<T,Integer> histogram = new HashMap<>();
         for (int i = 0; i < data.length; i++) {
-            histogram.put(data[i], histogram.containsKey((Integer)data[i])? histogram.get(data[i]) + 1 : 1);
+            histogram.put(data[i], histogram.containsKey((T)data[i])? histogram.get(data[i]) + 1 : 1);
         }
         return histogram;
     }
